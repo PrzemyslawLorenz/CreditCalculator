@@ -49,5 +49,11 @@ def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
     print("-" * 77)
 
 
-equal_payments(200000, 24, 0.05, 0.1)
-decreasing_payments(200000, 24, 0.05, 0.1)
+loanAmount = int(input("How big loan you want? "))
+loanTerm = int(input("For how long you want this loan (in months)? "))
+interestRate = int(input("How big is interest rate in your bank (in %)? "))
+downPayment = int(input("How big is down payment in your bank (in %)? "))
+
+
+equal_payments(loanAmount, loanTerm, interestRate / 100, downPayment / 100)
+decreasing_payments(loanAmount, loanTerm, interestRate / 100, downPayment / 100)
