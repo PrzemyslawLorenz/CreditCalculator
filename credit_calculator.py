@@ -28,7 +28,7 @@ def equal_payments(loanAmount, loanTerm, interestRate, downPayment):
         print("|  {:14}  |  {:14.2f}  |  {:14.2f}  |  {:14.2f}  |" .format(loanTerm - n, round(capital, 2), round(interest, 2), round(ratePerPeriod, 2)))
 
     print("-" * 77)
-    print("|  {:14}  |  {:14}  |  {:14}  |  {:14}  |" .format("Loan Term", "Loan Amount", "Total interest", "Total costs"))
+    print("|  {:14}  |  {:14}  |  {:14}  |  {:14}  |" .format("Loan term", "Loan amount", "Total interest", "Total costs"))
     print("-" * 77)
     print("|  {:14}  |  {:14.2f}  |  {:14.2f}  |  {:14.2f}  |" .format(loanTerm, round(loanAmount, 2), round(totalInterestPaid, 2), round(loanAmount + totalInterestPaid, 2)))
     print("-" * 77)
@@ -49,7 +49,7 @@ def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
         print("|  {:14}  |  {:14.2f}  |  {:14.2f}  |  {:14.2f}  |" .format(n+1, round(capital, 2), round(interest, 2), round(capital + interest, 2)))
 
     print("-" * 77)
-    print("|  {:14}  |  {:14}  |  {:14}  |  {:14}  |" .format("Loan Term", "Loan Amount", "Total interest", "Total costs"))
+    print("|  {:14}  |  {:14}  |  {:14}  |  {:14}  |" .format("Loan term", "Loan amount", "Total interest", "Total costs"))
     print("-" * 77)
     print("|  {:14}  |  {:14.2f}  |  {:14.2f}  |  {:14.2f}  |" .format(loanTerm, round(loanAmount, 2), round(totalInterestPaid, 2), round(loanAmount + totalInterestPaid, 2)))
     print("-" * 77)
