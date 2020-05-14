@@ -1,6 +1,17 @@
 """
     This program can be used to calculate loan costs and to print schedule
 """
+def checking_value():
+    while True:
+        try:
+            value = int(input())
+            break
+        except ValueError:
+            print("Your value must be integer type")
+
+    return value
+
+
 def equal_payments(loanAmount, loanTerm, interestRate, downPayment):
     totalInterestPaid = 0
     i = interestRate / 12   # i = Interest rate per period assuming 12 periods per year (monthly payment)
@@ -49,10 +60,14 @@ def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
     print("-" * 77)
 
 
-loanAmount = int(input("How big loan you want? "))
-loanTerm = int(input("For how long you want this loan (in months)? "))
-interestRate = int(input("How big is interest rate in your bank (in %)? "))
-downPayment = int(input("How big is down payment in your bank (in %)? "))
+print("How big loan you want? ")
+loanAmount = checking_value()
+print("For how long you want this loan (in months)? ")
+loanTerm = checking_value()
+print("How big is interest rate in your bank (in %)? ")
+interestRate = checking_value()
+print("How big is down payment in your bank (in %)? ")
+downPayment = checking_value()
 
 
 equal_payments(loanAmount, loanTerm, interestRate / 100, downPayment / 100)
