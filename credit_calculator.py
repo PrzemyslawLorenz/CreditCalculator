@@ -14,8 +14,6 @@ def checking_value():
 
 def equal_payments(loanAmount, loanTerm, interestRate, downPayment):
     totalInterestPaid = 0
-    i = interestRate / 12   # i = Interest rate per period assuming 12 periods per year (monthly payment)
-    loanAmount += loanAmount * downPayment
     ratePerPeriod = ((loanAmount * i * (1 + i)**loanTerm) / ((1 + i)**loanTerm - 1))
 
     print("\n\tSCHEDULE OF EQUAL PAYMENTS\n")
@@ -39,8 +37,6 @@ def equal_payments(loanAmount, loanTerm, interestRate, downPayment):
 
 def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
     totalInterestPaid = 0
-    i = interestRate / 12   # i = Interest rate per period assuming 12 periods per year (monthly payment)
-    loanAmount += loanAmount * downPayment
 
     print("\n\tSCHEDULE OF DECREASING PAYMENTS\n")
     print("-" * 77)
@@ -69,6 +65,10 @@ interestRate = checking_value()
 print("How big is down payment in your bank (in %)? ")
 downPayment = checking_value()
 
+interestRate = interestRate / 100
+downPayment = downPayment / 100
+loanAmount += loanAmount * downPayment
+i = interestRate / 12   # i = Interest rate per period assuming 12 periods per year (monthly payment)
 
-equal_payments(loanAmount, loanTerm, interestRate / 100, downPayment / 100)
-decreasing_payments(loanAmount, loanTerm, interestRate / 100, downPayment / 100)
+equal_payments(loanAmount, loanTerm, interestRate, downPayment)
+decreasing_payments(loanAmount, loanTerm, interestRate, downPayment)
