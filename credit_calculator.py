@@ -54,20 +54,24 @@ def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
     print("|  {:14}  |  {:14.2f}  |  {:14.2f}  |  {:14.2f}  |" .format(loanTerm, round(loanAmount, 2), round(totalInterestPaid, 2), round(loanAmount + totalInterestPaid, 2)))
     print("-" * 77)
 
+while True:
+    print("How big loan you want? ")
+    loanAmount = checking_value()
+    print("For how long you want this loan (in months)? ")
+    loanTerm = checking_value()
+    print("How big is interest rate in your bank (in %)? ")
+    interestRate = checking_value()
+    print("How big is down payment in your bank (in %)? ")
+    downPayment = checking_value()
 
-print("How big loan you want? ")
-loanAmount = checking_value()
-print("For how long you want this loan (in months)? ")
-loanTerm = checking_value()
-print("How big is interest rate in your bank (in %)? ")
-interestRate = checking_value()
-print("How big is down payment in your bank (in %)? ")
-downPayment = checking_value()
+    interestRate = interestRate / 100
+    downPayment = downPayment / 100
+    loanAmount += loanAmount * downPayment
+    i = interestRate / 12   # i = Interest rate per period assuming 12 periods per year (monthly payment)
 
-interestRate = interestRate / 100
-downPayment = downPayment / 100
-loanAmount += loanAmount * downPayment
-i = interestRate / 12   # i = Interest rate per period assuming 12 periods per year (monthly payment)
+    equal_payments(loanAmount, loanTerm, interestRate, downPayment)
+    decreasing_payments(loanAmount, loanTerm, interestRate, downPayment)
 
-equal_payments(loanAmount, loanTerm, interestRate, downPayment)
-decreasing_payments(loanAmount, loanTerm, interestRate, downPayment)
+    loop = input("\nType 'exit' if you want exit this program\nType anything to start over\n")
+    if loop == 'exit':
+        break
