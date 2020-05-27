@@ -2,6 +2,12 @@
     This program can be used to calculate loan costs and to print schedule
 """
 def checking_value():
+    """This module is used for getting user value,
+     and to check if it is a int type value.
+
+    Returns:
+        value --> [int]
+    """
     while True:
         try:
             value = int(input())
@@ -13,6 +19,11 @@ def checking_value():
 
 
 def equal_payments(loanAmount, loanTerm, interestRate, downPayment):
+    """This module is used for calculate equal payments.
+
+    Prints:
+        SCHEDULE OF EQUAL PAYMENTS
+    """
     totalInterestPaid = 0
     ratePerPeriod = ((loanAmount * i * (1 + i)**loanTerm) / ((1 + i)**loanTerm - 1))
 
@@ -35,6 +46,11 @@ def equal_payments(loanAmount, loanTerm, interestRate, downPayment):
 
 
 def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
+    """This module is used for calculate decreasing payments.
+
+    Prints:
+        SCHEDULE OF DECREASING PAYMENTS
+    """
     totalInterestPaid = 0
 
     print("\n\tSCHEDULE OF DECREASING PAYMENTS\n")
@@ -55,6 +71,12 @@ def decreasing_payments(loanAmount, loanTerm, interestRate, downPayment):
     print("-" * 77)
 
 while True:
+    """This is our start of program (looped).
+    Here we are asked for the details of our loan.
+
+    Redirection to appropriate modules.
+    """
+
     print("How big loan you want? ")
     loanAmount = checking_value()
     print("For how long you want this loan (in months)? ")
